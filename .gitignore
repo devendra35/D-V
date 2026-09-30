@@ -1,0 +1,76 @@
+
+
+# Environment variables / secrets
+.env
+.env.*
+!.env.example
+
+# Python virtual environment
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Test / coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# IDE / editors
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+logs/
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Temporary files
+*.tmp
+*.temp
+
+# Build / distribution
+build/
+dist/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Local uploads
+uploads/
+data/uploads/
+
+# Generated vector stores
+vectorstore/
+chroma/
+faiss_index/
+
+# Generated model files
+models/
+*.pkl
+*.pickle
+*.keras
+*.h5
+*.pt
+*.pth
+
+# Node/frontend dependencies
+node_modules/
+
+# Environment-specific files
+*.local

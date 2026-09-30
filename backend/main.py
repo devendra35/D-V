@@ -1,4 +1,5 @@
 import logging
+from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -14,11 +15,31 @@ configure_logging()
 logger = logging.getLogger(__name__)
 
 
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """Manage application startup and shutdown."""
+
+    logger.info(
+        "Starting %s v%s in %s mode",
+        settings.app_name,
+        settings.app_version,
+        settings.app_env,
+    )
+
+    yield
+
+    logger.info(
+        "Shutting down %s",
+        settings.app_name,
+    )
+
+
 # Create FastAPI application
 app = FastAPI(
     title=settings.app_name,
     description="The AI behind the developer.",
     version=settings.app_version,
+    lifespan=lifespan,
 )
 
 
@@ -27,7 +48,14 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.cors_origin_list,
     allow_credentials=True,
-    allow_methods=["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allow_methods=[
+        "GET",
+        "POST",
+        "PUT",
+        "PATCH",
+        "DELETE",
+        "OPTIONS",
+    ],
     allow_headers=["*"],
 )
 
@@ -55,22 +83,3 @@ async def health() -> dict[str, str]:
         "name": "DΞV",
         "status": "online",
     }
-
-
-@app.on_event("startup")
-async def startup_event() -> None:
-    """Run startup tasks."""
-
-    logger.info(
-        "Starting %s v%s in %s mode",
-        settings.app_name,
-        settings.app_version,
-        settings.app_env,
-    )
-
-
-@app.on_event("shutdown")
-async def shutdown_event() -> None:
-    """Run shutdown tasks."""
-
-    logger.info("Shutting down %s", settings.app_name)

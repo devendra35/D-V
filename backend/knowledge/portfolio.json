@@ -1,0 +1,217 @@
+﻿{
+  "name": "Devendra Khanal",
+  "headline": "AI/ML Developer • Tech Explorer • Problem Solver",
+  "location": "Biratnagar, Nepal",
+  "bio": "BSc.CSIT student and developer from Nepal passionate about building practical solutions with technology. I enjoy working with AI/ML, web development, and modern software technologies to turn ideas into useful digital products.",
+  "date_of_birth": "April 18, 2004",
+  "interests": [
+    "Music",
+    "Travel",
+    "Movie",
+    "Sports"
+  ],
+  "skill_categories": [
+    {
+      "name": "AI & Machine Learning",
+      "description": "Building and training intelligent models",
+      "skills": [
+        {"name": "Python", "description": "Programming"},
+        {"name": "TensorFlow", "description": "Deep Learning"},
+        {"name": "Keras", "description": "Neural Networks"},
+        {"name": "PyTorch", "description": "Deep Learning"},
+        {"name": "Scikit-learn", "description": "Machine Learning"},
+        {"name": "EfficientNetB3", "description": "Computer Vision"},
+        {"name": "U-Net", "description": "Image Segmentation"}
+      ]
+    },
+    {
+      "name": "Data Science",
+      "description": "Turning data into useful insights",
+      "skills": [
+        {"name": "NumPy", "description": "Numerical Computing"},
+        {"name": "Pandas", "description": "Data Analysis"},
+        {"name": "Matplotlib", "description": "Visualization"},
+        {"name": "Plotly", "description": "Interactive Charts"},
+        {"name": "EDA", "description": "Data Exploration"},
+        {"name": "Data Preprocessing", "description": "Data Preparation"},
+        {"name": "Feature Engineering", "description": "Model Preparation"}
+      ]
+    },
+    {
+      "name": "Web Development",
+      "description": "Creating responsive web experiences",
+      "skills": [
+        {"name": "HTML", "description": "Markup"},
+        {"name": "CSS", "description": "Styling"},
+        {"name": "JavaScript", "description": "Frontend"},
+        {"name": "React", "description": "UI Development"},
+        {"name": "Node.js", "description": "Backend"},
+        {"name": "TypeScript", "description": "Typed JavaScript"},
+        {"name": "Tailwind CSS", "description": "CSS Framework"}
+      ]
+    },
+    {
+      "name": "Tools & Technologies",
+      "description": "Tools I use to build and ship projects",
+      "skills": [
+        {"name": "Git", "description": "Version Control"},
+        {"name": "GitHub", "description": "Collaboration"},
+        {"name": "Streamlit", "description": "ML Apps"},
+        {"name": "Docker", "description": "Containers"},
+        {"name": "Jupyter Notebook", "description": "Development"},
+        {"name": "VS Code", "description": "Code Editor"},
+        {"name": "Figma", "description": "UI Design"},
+        {"name": "Postman", "description": "API Testing"}
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Nihareeka College Biratnagar",
+      "degree": "BSc.CSIT",
+      "field": "Computer Science and Information Technology",
+      "university": "Tribhuvan University",
+      "period": "2023 - Present",
+      "status": "Present"
+    },
+    {
+      "institution": "Kantipur College Biratnagar",
+      "degree": "+2 Science",
+      "field": "Science",
+      "period": "2020 - 2022",
+      "status": "Completed"
+    },
+    {
+      "institution": "Subha Laxmi English Boarding School",
+      "degree": "SEE",
+      "field": null,
+      "period": "Completed 2020",
+      "status": "Completed"
+    }
+  ],
+  "projects": [
+    {
+      "id": "brain-tumor-analyzer",
+      "name": "Brain Tumor Analyzer",
+      "description": "A brain tumor analysis app that classifies tumors using EfficientNetB3 and localizes them with Lightweight U-Net. Built with TensorFlow and Streamlit.",
+      "technologies": [
+        "TensorFlow",
+        "EfficientNetB3",
+        "U-Net",
+        "Streamlit"
+      ],
+      "github_url": null,
+      "live_url": "https://brain-tumor-classification-35.streamlit.app",
+      "category": "AI/ML",
+      "highlights": [
+        "Brain tumor classification using EfficientNetB3",
+        "Tumor localization using Lightweight U-Net",
+        "Built with TensorFlow and Streamlit"
+      ]
+    },
+    {
+      "id": "rag-hallucination-detector",
+      "name": "RAG Hallucination Detector",
+      "description": "A project that uses a trained Random Forest classifier and provides an interactive Streamlit interface for real-time prediction.",
+      "technologies": [
+        "Machine Learning",
+        "Random Forest",
+        "Streamlit",
+        "RAG"
+      ],
+      "github_url": null,
+      "live_url": "https://rag-hallucination-detector-by-devendra35.streamlit.app",
+      "category": "AI/ML",
+      "highlights": [
+        "Trained Random Forest classifier",
+        "Interactive Streamlit interface",
+        "Real-time prediction"
+      ]
+    },
+    {
+      "id": "dev-store",
+      "name": "Dev Store",
+      "description": "A modern full-stack e-commerce platform featuring product management, secure authentication, order processing, and a responsive user experience.",
+      "technologies": [
+        "Full Stack",
+        "E-commerce",
+        "Authentication"
+      ],
+      "github_url": null,
+      "live_url": null,
+      "category": "Web Development",
+      "highlights": [
+        "Product management",
+        "Secure authentication",
+        "Order processing",
+        "Responsive user experience"
+      ]
+    },
+    {
+      "id": "ai-powered-personal-assistant",
+      "name": "AI-powered Personal Assistant",
+      "description": "An AI-powered personal assistant that combines voice, text, automation, and intelligent task management into a single smart companion.",
+      "technologies": [
+        "Artificial Intelligence",
+        "Voice",
+        "Text",
+        "Automation"
+      ],
+      "github_url": null,
+      "live_url": null,
+      "category": "AI",
+      "highlights": [
+        "Voice interaction",
+        "Text interaction",
+        "Automation",
+        "Intelligent task management"
+      ]
+    },
+    {
+      "id": "quiz-game",
+      "name": "Quiz Game",
+      "description": "My first project made using HTML, CSS and JavaScript.",
+      "technologies": [
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
+      "github_url": null,
+      "live_url": "https://devendra35.github.io",
+      "category": "Web Development",
+      "highlights": [
+        "Built with HTML",
+        "Built with CSS",
+        "Built with JavaScript"
+      ]
+    }
+  ],
+  "certificates": [
+    {
+      "name": "Remote Sensing for Coastal Change Detection",
+      "issuer": "CQUniversity, Australia",
+      "description": "International Webinar Certificate."
+    },
+    {
+      "name": "Final Year Project Report Writing",
+      "issuer": null,
+      "description": "National Webinar for B.Sc. CSIT Students. Certificate of Participation."
+    },
+    {
+      "name": "WiFi Applications: Opportunities & Challenges",
+      "issuer": null,
+      "description": "Live Webinar."
+    }
+  ],
+  "contact": {
+    "email": "devendrakhanal006@gmail.com",
+    "phone": "+977 9863246340",
+    "location": "Biratnagar, Nepal"
+  },
+  "social_links": [
+    {
+      "platform": "GitHub",
+      "url": "https://github.com/devendra35"
+    }
+  ]
+}

@@ -1,15 +1,17 @@
-import logging
+﻿import logging
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from backend.api.chat import router as chat_router
+from backend.api.profile import router as profile_router
+from backend.api.projects import router as projects_router
+from backend.api.skills import router as skills_router
 from backend.config import settings
 from backend.logging_config import configure_logging
 
 
-# Configure application logging
 configure_logging()
 
 logger = logging.getLogger(__name__)
@@ -34,7 +36,6 @@ async def lifespan(app: FastAPI):
     )
 
 
-# Create FastAPI application
 app = FastAPI(
     title=settings.app_name,
     description="The AI behind the developer.",
@@ -43,7 +44,6 @@ app = FastAPI(
 )
 
 
-# Configure CORS
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.cors_origin_list,
@@ -60,8 +60,10 @@ app.add_middleware(
 )
 
 
-# Register API routers
 app.include_router(chat_router)
+app.include_router(profile_router)
+app.include_router(projects_router)
+app.include_router(skills_router)
 
 
 @app.get("/", tags=["System"])

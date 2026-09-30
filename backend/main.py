@@ -3,6 +3,7 @@ import logging
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from backend.api.chat import router as chat_router
 from backend.config import settings
 from backend.logging_config import configure_logging
 
@@ -29,6 +30,10 @@ app.add_middleware(
     allow_methods=["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allow_headers=["*"],
 )
+
+
+# Register API routers
+app.include_router(chat_router)
 
 
 @app.get("/", tags=["System"])

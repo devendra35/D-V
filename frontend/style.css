@@ -2624,3 +2624,11 @@ body.dark-mode .project-info a:hover {
         padding: 6px 9px;
     }
 }
+@media (max-width: 768px) {
+    .image-ring {
+        left: 50%;
+        transform: translateX(-50%) rotate(-12deg);
+        max-width: 85vw;
+        max-height: 85vw;
+    }
+}

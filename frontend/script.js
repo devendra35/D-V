@@ -2,10 +2,6 @@
    DΞV Portfolio — Frontend
    ========================================= */
 
-/* -----------------------------------------
-   Existing ScrollReveal animations
-   ----------------------------------------- */
-
 if (typeof ScrollReveal !== "undefined") {
   ScrollReveal().reveal(".hero-left", {
     origin: "left",
@@ -50,17 +46,18 @@ if (typeof ScrollReveal !== "undefined") {
   });
 }
 
-
-/* -----------------------------------------
-   DΞV API configuration
-   ----------------------------------------- */
-
-const DEV_API_URL = "http://127.0.0.1:8001";
-
-
-/* -----------------------------------------
-   DΞV Chat API helper
-   ----------------------------------------- */
+/*
+ * DΞV API
+ *
+ * Local development:
+ *   http://127.0.0.1:8001
+ *
+ * Production:
+ *   Set window.DEV_API_BASE_URL before script.js loads.
+ */
+const DEV_API_URL =
+  window.DEV_API_BASE_URL ||
+  "http://127.0.0.1:8001";
 
 async function askDEV(message) {
   const response = await fetch(`${DEV_API_URL}/chat`, {
@@ -80,22 +77,11 @@ async function askDEV(message) {
   return await response.json();
 }
 
-
-/* -----------------------------------------
-   Expose DΞV API
-   ----------------------------------------- */
-
 window.DEV = {
   ask: askDEV
 };
 
-console.log("DΞV API READY");
-
-
-
-/* -----------------------------------------
-   DΞV Chat UI
-   ----------------------------------------- */
+console.log("DΞV API READY:", DEV_API_URL);
 
 const devLauncher = document.getElementById("dev-launcher");
 const devChat = document.getElementById("dev-chat");
@@ -132,10 +118,7 @@ console.log("DΞV DOM CHECK:", {
 
 const devChatForm = document.getElementById("dev-chat-form");
 
-/* -----------------------------------------
-   DΞV Chat API Connection
-   ----------------------------------------- */
-
+/* DΞV Chat API Connection */
 if (devChatForm) {
   devChatForm.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -162,16 +145,16 @@ if (devChatForm) {
       addDEVMessage(result.response, "ai");
     } catch (error) {
       console.error("DΞV CHAT ERROR:", error);
+
+      addDEVMessage(
+        "Sorry, DΞV is temporarily unavailable.",
+        "ai"
+      );
     }
   });
 }
 
-
-
-/* -----------------------------------------
-   DΞV Message Rendering
-   ----------------------------------------- */
-
+/* DΞV Message Rendering */
 const devMessages = document.getElementById("dev-messages");
 
 function addDEVMessage(content, type = "ai") {
@@ -206,5 +189,3 @@ function addDEVMessage(content, type = "ai") {
 
   devMessages.scrollTop = devMessages.scrollHeight;
 }
-
-

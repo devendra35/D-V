@@ -2288,7 +2288,7 @@ body.dark-mode .project-info a:hover {
     padding: 16px 18px;
 
     display: flex;
-    align-items: center;`n    justify-content: center;
+    align-items: center;  justify-content: center;
 
     background: #111111;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -2631,4 +2631,119 @@ body.dark-mode .project-info a:hover {
         max-width: 85vw;
         max-height: 85vw;
     }
+}
+/* paxi add gareko*/
+/* =========================================================
+   MOBILE FIXES — paste at the VERY END of style.css
+   (these override the older, conflicting mobile blocks)
+========================================================= */
+
+html { -webkit-text-size-adjust: 100%; }
+body { overflow-x: hidden; }
+
+/* Typo fix for the contact heading (was clamp(0.5rem, ...) = tiny) */
+.contact-info h3 { font-size: clamp(1.5rem, 5vw, 2rem); }
+.contact-section .section-title { margin-bottom: 40px; }
+
+/* Project cards: tap-to-reveal (JS adds .active) */
+.project-card.active .project-info { opacity: 1; }
+.project-card.active img { transform: scale(1.1); filter: blur(2px); }
+
+/* Chat: header layout, user bubbles */
+.dev-chat-header { justify-content: space-between; }
+.dev-message-user { align-self: flex-end; flex-direction: row-reverse; }
+.dev-message-user .dev-message-content { background: #a5a488; color: #111; }
+.dev-message-content { overflow-wrap: anywhere; }
+
+/* ---------- TABLET & PHONE (<= 991px) ---------- */
+@media (max-width: 991px) {
+
+    /* In a column layout, flex-basis (600px / 450px) became HEIGHT.
+       That caused huge empty gaps in the hero. */
+    .hero-left,
+    .hero-right { flex: 0 0 auto; width: 100%; }
+
+    #particles-js { min-height: auto; }
+    .hero { min-height: auto; padding: 50px 5% 70px; }
+}
+
+/* ---------- PHONE (<= 768px) ---------- */
+@media (max-width: 768px) {
+
+    .hero { padding: 40px 20px 60px; gap: 40px; }
+
+    /* same flex-basis-as-height bug in About */
+    .about-img,
+    .about-content { flex: 0 0 auto; }
+
+    /* old rule used left:50% which squashed the ring */
+    .image-ring {
+        left: -10px;
+        right: -10px;
+        top: -10px;
+        bottom: -10px;
+        inset: -10px;
+        max-width: none;
+        max-height: none;
+        transform: rotate(-12deg);
+    }
+    .hero-image-wrapper { width: min(320px, 78vw); }
+}
+
+/* ---------- PHONE (<= 600px) ---------- */
+@media (max-width: 600px) {
+
+    /* broken line in the old CSS (literal `r`n) killed this gap */
+    .hero-tech { gap: 6px; max-width: 340px; margin: 0 auto; }
+
+    /* 2 compact columns instead of 7 long single cards */
+    .skill-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .skill-card { min-height: 64px; padding: 10px; gap: 9px; }
+    .skill-icon,
+    .text-skill-icon { width: 32px; height: 32px; flex-basis: 32px; }
+    .skill-card h4 { font-size: 12px; overflow-wrap: anywhere; }
+    .skill-card div span { font-size: 10px; }
+    .category-heading h3 { font-size: 18px; }
+
+    /* about: stop the image from forcing a tall box */
+    .about-img img { height: auto; aspect-ratio: 3 / 4; }
+
+    /* touch-friendly targets */
+    .nav-links li a { padding: 14px; }
+    .btn, .send-btn { min-height: 48px; }
+
+    /* 16px inputs stop iOS Safari zooming in on focus */
+    .contact-form input,
+    .contact-form textarea,
+    #dev-input { font-size: 16px; }
+
+    .edu-card { padding: 24px 18px; }
+    .certificate-card img { height: 200px; }
+
+    /* chat uses dynamic viewport so the keyboard doesn't hide it */
+    .dev-launcher {
+        right: max(16px, env(safe-area-inset-right));
+        bottom: max(16px, env(safe-area-inset-bottom));
+    }
+    .dev-chat {
+        top: 75px;
+        bottom: calc(86px + env(safe-area-inset-bottom));
+        height: auto;
+    }
+}
+
+/* ---------- SMALL PHONES (<= 380px) ---------- */
+@media (max-width: 380px) {
+    .skill-list { grid-template-columns: 1fr; }
+    .hero-image-wrapper { width: 240px; }
+}
+
+/* Touch devices: no hover, so make cards tappable & show a hint */
+@media (hover: none) {
+    .project-card:hover img { transform: none; filter: none; }
+    .project-card:hover .project-info { opacity: 0; }
+    .project-card.active:hover .project-info { opacity: 1; }
+    .skill-card:hover,
+    .edu-card:hover,
+    .certificate-card:hover { transform: none; }
 }

@@ -180,7 +180,7 @@ a {
 
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 
     gap: 70px;
 
@@ -1546,7 +1546,8 @@ a {
         padding: 70px 5%;
 
         gap: 50px;
-    }
+        justify-content: center;
+}
 
     .hero-left {
         width: 100%;
@@ -1682,7 +1683,8 @@ a {
         padding: 50px 20px 70px;
 
         gap: 45px;
-    }
+        justify-content: center;
+}
 
     .hero-left {
         width: 100%;
@@ -1753,9 +1755,7 @@ a {
     }
 
     .hero-tech {
-        justify-content: center;
-
-        gap: 6px;
+        justify-content: center;`r`n`r`n    gap: 6px;
 
         max-width: 340px;
 
@@ -2035,7 +2035,8 @@ a {
     .hero {
         padding-left: 15px;
         padding-right: 15px;
-    }
+        justify-content: center;
+}
 
     .hero-left h1 {
         font-size: 2.1rem;
@@ -2287,8 +2288,7 @@ body.dark-mode .project-info a:hover {
     padding: 16px 18px;
 
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    align-items: center;`n    justify-content: center;
 
     background: #111111;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -2477,4 +2477,9 @@ body.dark-mode .project-info a:hover {
         border-radius: 18px;
     }
 }
+
+
+
+
+
 

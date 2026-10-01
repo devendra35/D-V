@@ -61,7 +61,7 @@ chroma/
 faiss_index/
 
 # Generated model files
-models/
+/models/
 *.pkl
 *.pickle
 *.keras

@@ -10,6 +10,7 @@ from backend.api.projects import router as projects_router
 from backend.api.skills import router as skills_router
 from backend.config import settings
 from backend.logging_config import configure_logging
+from backend.rag.ingestion import PortfolioRAGIndexer
 
 
 configure_logging()
@@ -27,6 +28,23 @@ async def lifespan(app: FastAPI):
         settings.app_version,
         settings.app_env,
     )
+
+    indexer = PortfolioRAGIndexer()
+
+    if indexer.vector_store.count() == 0:
+        logger.info("RAG index is empty. Building portfolio index...")
+
+        chunk_count = indexer.build()
+
+        logger.info(
+            "RAG index built successfully with %s chunks.",
+            chunk_count,
+        )
+    else:
+        logger.info(
+            "RAG index already contains %s chunks. Skipping rebuild.",
+            indexer.vector_store.count(),
+        )
 
     yield
 

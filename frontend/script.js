@@ -46,15 +46,6 @@ if (typeof ScrollReveal !== "undefined") {
   });
 }
 
-/*
- * DΞV API
- *
- * Local development:
- *   http://127.0.0.1:8001
- *
- * Production:
- *   Set window.DEV_API_BASE_URL before script.js loads.
- */
 const DEV_API_URL =
   window.DEV_API_BASE_URL ||
   "http://127.0.0.1:8001";
@@ -87,6 +78,8 @@ const devLauncher = document.getElementById("dev-launcher");
 const devChat = document.getElementById("dev-chat");
 const devClose = document.getElementById("dev-close");
 const devInput = document.getElementById("dev-input");
+const devChatForm = document.getElementById("dev-chat-form");
+const devMessages = document.getElementById("dev-messages");
 
 if (devLauncher && devChat) {
   devLauncher.onclick = () => {
@@ -116,9 +109,47 @@ console.log("DΞV DOM CHECK:", {
   close: !!document.getElementById("dev-close")
 });
 
-const devChatForm = document.getElementById("dev-chat-form");
+/* =========================================
+   DΞV Thinking Animation
+   ========================================= */
 
-/* DΞV Chat API Connection */
+function addDEVThinking() {
+  if (!devMessages) {
+    return null;
+  }
+
+  const message = document.createElement("div");
+
+  message.className =
+    "dev-message dev-message-ai dev-thinking-message";
+
+  message.innerHTML = `
+    <div class="dev-message-avatar">DΞV</div>
+
+    <div class="dev-message-content dev-thinking">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  `;
+
+  devMessages.appendChild(message);
+
+  devMessages.scrollTop = devMessages.scrollHeight;
+
+  return message;
+}
+
+function removeDEVThinking(message) {
+  if (message && message.parentNode) {
+    message.remove();
+  }
+}
+
+/* =========================================
+   Chat
+   ========================================= */
+
 if (devChatForm) {
   devChatForm.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -135,27 +166,51 @@ if (devChatForm) {
 
     if (devInput) {
       devInput.value = "";
+      devInput.disabled = true;
     }
+
+    const sendButton =
+      devChatForm.querySelector("button[type='submit']");
+
+    if (sendButton) {
+      sendButton.disabled = true;
+    }
+
+    const thinkingMessage = addDEVThinking();
 
     try {
       const result = await window.DEV.ask(message);
 
       console.log("DΞV RESPONSE:", result);
 
+      removeDEVThinking(thinkingMessage);
+
       addDEVMessage(result.response, "ai");
     } catch (error) {
       console.error("DΞV CHAT ERROR:", error);
+
+      removeDEVThinking(thinkingMessage);
 
       addDEVMessage(
         "Sorry, DΞV is temporarily unavailable.",
         "ai"
       );
+    } finally {
+      if (devInput) {
+        devInput.disabled = false;
+        devInput.focus();
+      }
+
+      if (sendButton) {
+        sendButton.disabled = false;
+      }
     }
   });
 }
 
-/* DΞV Message Rendering */
-const devMessages = document.getElementById("dev-messages");
+/* =========================================
+   Add Message
+   ========================================= */
 
 function addDEVMessage(content, type = "ai") {
   if (!devMessages) {

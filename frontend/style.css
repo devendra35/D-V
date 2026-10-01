@@ -2483,3 +2483,144 @@ body.dark-mode .project-info a:hover {
 
 
 
+/* =========================================
+   MOBILE RESPONSIVE — HERO SECTION   yeh bata change 
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    .hero {
+        width: 100%;
+        min-height: auto;
+        padding: 110px 22px 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hero-left {
+        width: 100%;
+        max-width: 600px;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .availability {
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 12px;
+        margin-bottom: 20px;
+    }
+
+    .hero h1 {
+        font-size: clamp(32px, 9vw, 52px);
+        line-height: 1.15;
+        margin-bottom: 16px;
+    }
+
+    .hero h1 span {
+        display: block;
+        margin-top: 4px;
+    }
+
+    .hero h2 {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        font-size: clamp(13px, 3.8vw, 18px);
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    .hero h2 .role {
+        white-space: nowrap;
+    }
+
+    .hero h2 .separator {
+        margin: 0 2px;
+    }
+
+    .hero-description {
+        width: 100%;
+        max-width: 540px;
+        margin: 0 auto 28px;
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+    }
+
+    .buttons .btn {
+        width: min(100%, 280px);
+        justify-content: center;
+    }
+
+    .hero-tech {
+        width: 100%;
+        margin-top: 30px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .hero-tech span {
+        font-size: 11px;
+        padding: 7px 11px;
+    }
+}
+
+
+/* =========================================
+   SMALL PHONES
+   ========================================= */
+
+@media (max-width: 480px) {
+
+    .hero {
+        padding: 100px 18px 50px;
+    }
+
+    .availability {
+        font-size: 11px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero h2 {
+        font-size: 13px;
+        gap: 3px;
+    }
+
+    .hero-description {
+        font-size: 13px;
+        line-height: 1.75;
+    }
+
+    .buttons .btn {
+        width: 100%;
+        max-width: 260px;
+        min-height: 48px;
+    }
+
+    .hero-tech {
+        margin-top: 25px;
+    }
+
+    .hero-tech span {
+        font-size: 10px;
+        padding: 6px 9px;
+    }
+}
